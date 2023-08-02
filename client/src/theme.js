@@ -54,10 +54,10 @@ function reverseTokens(tokens) {
       reversedObj[keys[i]] = values[length - i - 1];
     }
 
-    tokens[(key = reversedObj)];
+    reverseTokens[key] = reversedObj;
   });
 
-  return tokens;
+  return reverseTokens;
 }
 
 export const tokensLight = reverseTokens(tokensDark);
