@@ -1,4 +1,4 @@
-import Reacjljlkjlkjakl, { useState } from "react";
+import React, { useState } from "react";
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -27,8 +27,6 @@ import {
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
-
-  const [anchorEl, setAnchorEl] = useState(null);
 
   return (
     <AppBar
