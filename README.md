@@ -1,1 +1,1 @@
-# Dashboard for merchandising analytics
+# Dashboard for Merchandising Analytics
