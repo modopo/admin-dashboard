@@ -50,6 +50,7 @@ const Product = ({
           ${Number(price).toFixed(2)}
         </Typography>
         <Rating value={rating} readOnly />
+
         <Typography variant="body2">{description}</Typography>
       </CardContent>
       <CardActions>
@@ -71,7 +72,7 @@ const Product = ({
       >
         <CardContent>
           <Typography>id: {_id}</Typography>
-          <Typography>Stock Left: {supply}</Typography>
+          <Typography>Supply Left: {supply}</Typography>
           <Typography>
             Yearly Sales This Year: {stat.yearlySalesTotal}
           </Typography>
@@ -90,8 +91,8 @@ const Products = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="PRODUCTS" subtitle="List of all products." />
-      {data || isLoading ? (
+      <Header title="PRODUCTS" subtitle="See your list of products." />
+      {data || !isLoading ? (
         <Box
           mt="20px"
           display="grid"
