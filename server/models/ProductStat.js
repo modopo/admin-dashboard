@@ -5,7 +5,6 @@ const ProductStatSchema = new mongoose.Schema(
     productId: String,
     yearlySalesTotal: Number,
     yearlyTotalSoldUnits: Number,
-    year: Number,
     monthlyData: [
       {
         month: String,
@@ -21,9 +20,7 @@ const ProductStatSchema = new mongoose.Schema(
       },
     ],
   },
-  {
-    timestamps: true,
-  },
+  { timestamps: true },
 );
 
 const ProductStat = mongoose.model("ProductStat", ProductStatSchema);
