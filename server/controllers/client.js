@@ -42,20 +42,20 @@ export const getTransactions = async (req, res) => {
     const generateSort = () => {
       const sortParsed = JSON.parse(sort);
       const sortFormatted = {
-        [sortParsed.filed]: (sortParsed.sort = "asc" ? 1 : -1),
+        [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
       };
 
       return sortFormatted;
     };
     const sortFormatted = Boolean(sort) ? generateSort() : {};
 
-    const transaction = await Transaction.find({
+    const transactions = await Transaction.find({
       $or: [
         { cost: { $regex: new RegExp(search, "i") } },
         { userId: { $regex: new RegExp(search, "i") } },
       ],
     })
-      .sort(sortFornatted)
+      .sort(sortFormatted)
       .skip(page * pageSize)
       .limit(pageSize);
 
