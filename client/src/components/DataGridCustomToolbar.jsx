@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "@mui/icons-matieral";
+import { Search } from "@mui/icons-material";
 import { IconButton, TextField, InputAdornment } from "@mui/material";
 import {
   GridToolbarDensitySelector,
@@ -20,3 +20,5 @@ const DataGridCustomToolbar = () => {
     </GridToolbarContainer>
   );
 };
+
+export default DataGridCustomToolbar;
