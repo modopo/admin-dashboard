@@ -32,34 +32,34 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const isOpen = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
-
   return (
     <AppBar
       sx={{
         position: "static",
-        background: "node",
+        background: "none",
         boxShadow: "none",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* left side */}
+        {/* LEFT SIDE */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
+          <FlexBetween
+            backgroundColor={theme.palette.background.alt}
+            borderRadius="9px"
+            gap="3rem"
+            p="0.1rem 1.5rem"
+          >
+            <InputBase placeholder="Search..." />
+            <IconButton>
+              <Search />
+            </IconButton>
+          </FlexBetween>
         </FlexBetween>
-        <FlexBetween
-          backgroundColor={theme.palette.background.alt}
-          borderRadius="9px"
-          gap="3rem"
-          p="0.1rem 1.5rem"
-        >
-          <InputBase placeholder="Search..." />
-          <IconButton>
-            <Search />
-          </IconButton>
-        </FlexBetween>
-        {/* right side */}
+
+        {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
@@ -89,7 +89,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 height="32px"
                 width="32px"
                 borderRadius="50%"
-                sx={{ objectFix: "cover" }}
+                sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
                 <Typography
@@ -100,7 +100,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   {user.name}
                 </Typography>
                 <Typography
-                  fontWeight="bold"
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
