@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Divider,
@@ -30,7 +29,7 @@ import {
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import FlexBetween from "./FlexBetween.jsx";
+import FlexBetween from "./FlexBetween";
 import profileImage from "assets/profile.jpeg";
 
 const navItems = [
@@ -107,7 +106,6 @@ const Sidebar = ({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
-
   return (
     <Box component="nav">
       {isSidebarOpen && (
@@ -121,7 +119,7 @@ const Sidebar = ({
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
-              boxSizing: "border-box",
+              boxSixing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
             },
@@ -146,7 +144,7 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.5rem 0 1rem 3rem" }}>
+                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
                       {text}
                     </Typography>
                   );
@@ -192,13 +190,10 @@ const Sidebar = ({
               })}
             </List>
           </Box>
+
           <Box position="absolute" bottom="2rem">
             <Divider />
-            <FlexBetween
-              textTransform="none"
-              gap="1rem"
-              m="1.5 rem 2rem 0 3rem"
-            >
+            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
               <Box
                 component="img"
                 alt="profile"
@@ -206,7 +201,7 @@ const Sidebar = ({
                 height="40px"
                 width="40px"
                 borderRadius="50%"
-                sx={{ objectFix: "cover" }}
+                sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
                 <Typography
@@ -217,19 +212,18 @@ const Sidebar = ({
                   {user.name}
                 </Typography>
                 <Typography
-                  fontWeight="bold"
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
                   {user.occupation}
                 </Typography>
-                <SettingsOutlined
-                  sx={{
-                    color: theme.palette.secondary[300],
-                    fontSize: "25px",
-                  }}
-                />
               </Box>
+              <SettingsOutlined
+                sx={{
+                  color: theme.palette.secondary[300],
+                  fontSize: "25px ",
+                }}
+              />
             </FlexBetween>
           </Box>
         </Drawer>
