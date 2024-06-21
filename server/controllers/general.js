@@ -14,14 +14,15 @@ export const getUser = async (req, res) => {
 
 export const getDashboardStats = async (req, res) => {
   try {
-    // mock hardcoded data based on dataset
+    // hardcoded values for data limit
     const currentMonth = "November";
     const currentYear = 2021;
     const currentDay = "2021-11-15";
 
-    const transaction = await Transaction.find()
+    const transactions = await Transaction.find()
       .limit(50)
       .sort({ createdOn: -1 });
+
     const overallStat = await OverallStat.find({ year: currentYear });
 
     const {
@@ -30,7 +31,7 @@ export const getDashboardStats = async (req, res) => {
       yearlySalesTotal,
       monthlyData,
       salesByCategory,
-    } = overallStat;
+    } = overallStat[0];
 
     const thisMonthStats = overallStat[0].monthlyData.find(({ month }) => {
       return month === currentMonth;
@@ -48,7 +49,7 @@ export const getDashboardStats = async (req, res) => {
       salesByCategory,
       thisMonthStats,
       todayStats,
-      transaction,
+      transactions,
     });
   } catch (error) {
     res.status(404).json({ message: error.message });
