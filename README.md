@@ -6,7 +6,7 @@ The dashboard is a web application designed for merchandising analytics. It prov
 
 ## Deployment
 
-[Live Demo](https://modopo-admin-dashboard.netlify.app/)
+[Live Demo](https://merchandising-admin-dash.netlify.app/dashboard)
 
 Frontend is deployed with Netlify.
 Backend is deployed with Render.
