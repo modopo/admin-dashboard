@@ -8,10 +8,12 @@ import morgan from "morgan";
 import path from "path";
 import multer from "multer";
 import { fileURLToPath } from "url";
+import { register } from "./controllers/auth.js";
 import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
+import authRoutes from "./routes/auth.js";
 
 // data imports
 import User from "./models/User.js";
@@ -30,7 +32,6 @@ import {
 } from "./data/index.js";
 
 // Configs
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -54,12 +55,17 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
+const upload = multer({ storage });
 
 // Routes
+aap.us("/auth", authRoutes);
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+
+// Routes with files
+app.post("/auth/register", upload.single("picture"), register);
 
 // mongoose
 const PORT = process.env.PORT || 9000;
