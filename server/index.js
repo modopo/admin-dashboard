@@ -58,7 +58,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Routes
-aap.us("/auth", authRoutes);
+app.use("/auth", authRoutes);
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
