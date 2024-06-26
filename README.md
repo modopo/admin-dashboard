@@ -66,7 +66,7 @@ The data model used for the dashboard:
 1. **Start the server**:
 
    ```bash
-   cd server
+   cd ../server
    npm start
    ```
 
